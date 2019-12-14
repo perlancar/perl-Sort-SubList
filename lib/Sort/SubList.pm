@@ -39,7 +39,7 @@ sub sort_sublist {
 
 1;
 
-# ABSTRACT: Sort only certain elements in a list, while keeping the order of the rest
+# ABSTRACT: Sort only certain elements in a list, while maintaining the order of the rest
 
 =head1 SYNOPSIS
 
@@ -73,11 +73,12 @@ Usage:
 
 =head1 FAQ
 
-=head2 Why no prototype so it's more convenient to use like the builtin C<sort>?
+=head2 How about adding prototype to C<sort_sublist> so it's more convenient to use like the builtin C<sort>?
 
-The builtin C<sort>'s behavior is hard to emulate with prototype. For more
-discussion: L<https://www.perlmonks.org/index.pl/www.mrtg.org?node_id=1207981>.
-So for simplicity I do away with prototypes altogether.
+The builtin C<sort>'s behavior is hard to emulate with subroutine prototypes.
+For more discussion:
+L<https://www.perlmonks.org/index.pl/www.mrtg.org?node_id=1207981>. For
+simplicity, I do away with prototypes altogether.
 
 =head2 How to use $a and $b in comparison sub, just like when we use builtin C<sort>?
 
@@ -94,7 +95,8 @@ Something like this will do:
     }
 
 Or, you can just use C<$_[0]> (instead of C<$a>) and C<$_[1]> (instead of C<$b>)
-like the example in Synopsis shows.
+like the example in Synopsis shows. Again, this is where the specialness of the
+sort subroutine is not easy or straightforward to emulate.
 
 
 =head1 SEE ALSO
